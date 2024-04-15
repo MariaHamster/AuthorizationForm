@@ -1,0 +1,10 @@
+:host ::ng-deep {
+    .p-tabview-nav {
+        justify-content: center;
+    }
+    .p-tabview-nav-link {
+        height: 70px;
+        color: #10b981;
+        text-decoration: none;
+    }
+}

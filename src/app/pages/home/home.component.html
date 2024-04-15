@@ -1,0 +1,46 @@
+<div>
+<div class="header d-flex justify-content-between align-items-center">
+    <img src="https://primefaces.org/cdn/primeng/images/primeng.svg" 
+        height="50" 
+        class="mr-2 mx-3" />
+    <div class="d-flex">
+        <div class="fw-bolder">Имя пользователя: </div>
+        <div class="ms-2">{{ user?.name }}</div>
+    </div>
+    <button (click)="logout()"
+            type="submit"
+            class="btn btn-warning mx-3 px-5">Выход</button>
+</div>
+
+<div class="mt-5 px-3">
+    <p-table [value]="users">
+        <ng-template pTemplate="caption">
+            Таблица зарегистрированных пользователей
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Логин</th>
+                <th>Пароль</th>
+                <th>Имя</th>
+                <th>Дата регистрации</th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-user>
+            <tr>
+                <td>{{ user.login }}</td>
+                <td>{{ user.psw }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.registrationDate | date:'medium'}}</td>
+                <td>
+                    <button [disabled]="user.login == authUserLogin"
+                            (click)="deleteUser(user)"
+                            type="submit"
+                            class="btn btn-danger">Удалить</button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+</div>
+  

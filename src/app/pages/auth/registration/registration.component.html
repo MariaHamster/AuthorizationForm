@@ -1,0 +1,30 @@
+<div class="d-flex flex-column registration-input-wrap">
+    <div class="d-flex align-items-center justify-content-center">
+        <span class="mx-3">{{loginText}}</span>
+        <input type="text" 
+             pInputText 
+             [ngClass]="{'input-error': !login}"
+             [(ngModel)]="login"/>
+  </div>
+  <div class="d-flex align-items-center justify-content-center mt-3">
+      <span class="mx-3">{{pswText}}</span>
+      <input type="password" 
+             pInputText 
+             [ngClass]="{'input-error': !psw}"
+             [(ngModel)]="psw"/>
+  </div>
+  <div class="d-flex align-items-center justify-content-center mt-3">
+      <span class="mx-3">{{nameText}}</span>
+      <input type="text" 
+             pInputText 
+             [ngClass]="{'input-error': !name}"
+             [(ngModel)]="name"/>
+  </div>
+  
+    <div class="mt-5 d-flex justify-content-center">
+      <button [disabled]="!login || !psw || !name"
+              (click)="registration($event)"
+              type="submit"
+              class="btn btn-success">Зарегистрироваться</button>
+    </div>
+  </div>
